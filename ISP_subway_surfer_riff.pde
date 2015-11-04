@@ -11,7 +11,7 @@ int y; // tracks vertical position of boulders/trees
 void setup() {
 
   //Make Canvas
-  size(600, 400);
+  size(600, 700);
 
   x=300; // start position of person
 } //End of void setup
@@ -25,7 +25,7 @@ void draw() {
   fill(10, 50, 10);
 
   //Make Person 
-  ellipse(x, 350, 30, 30);
+  ellipse(x, 650, 30, 30);
 }
 
 
