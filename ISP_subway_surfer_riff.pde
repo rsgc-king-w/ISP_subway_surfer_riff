@@ -32,6 +32,7 @@ void setup() {
   s1= 10+a1;
   s2= 12+a2;
   s3= 15+a3;
+ 
 
   a1= 1.5;
   a2= 2;
@@ -56,21 +57,21 @@ void draw() {
 
   y1= y1+s1; // Tells the tree to move across the screen
   if (y1 > 850) {
-    y1= -200;
+    y1= random(-200,-100);
   }
 
   rect (105, y2, 40, 40);
 
   y2= y2+s2; // Tells rock to move
-  if (y2> 890) {
-    y2= -150+-100;
+  if (y2> 850) {
+    y2= random(-200,-100);
   }
 
   rect (455, y3, 40, 40);
   
   y3= y3 +s3;
   if (y3> 850) {
-    y3= -200;
+    y3= random(-200,-100);
   }
 } // End of Draw (action stuff)
 
