@@ -22,14 +22,15 @@ int time; // variable of seconds
 int score;// score
 
 PImage dude;
-PImage rocks;
+PImage tree;
 
 //this function only runs once
 void setup() {
-rock= loadImage( 
+//rock= loadImage
   
   //Make Canvas
   size(600, 700);
+
 
   x1= 300; // start position of person
   y1= -100; //start position of rock
@@ -41,6 +42,9 @@ rock= loadImage(
 
   time= 0;
   score= 0;
+ 
+ tree = loadImage("evergreen1.jpg");
+ //dude= loadImage("
 } //End of void setup
 
 
@@ -49,6 +53,8 @@ void draw() {
   background(255);
   textSize(20);
 
+
+// Acceleration/ make game harder
   a= a+.001;
   b= b+.001;
 
@@ -62,24 +68,25 @@ void draw() {
 
 
   //make trees
-  rect(280, y1, 40, 40);
-
+  
+  image(tree, 280, y1, 80, 80);
+// Tells tree to randomize
   y1= y1+s1; // Tells the tree to move across the screen
   if (y1 > 850) {
     y1= random(-200, -100);
     s1= random(a, b);
   }
 
-  rect (105, y2, 40, 40);
-
+  image(tree ,105, y2, 80, 80);
+// Tells tree to randomize
   y2= y2+s2; // Tells rock to move
   if (y2> 850) {
     y2= random(-200, -100);
     s2= random(a, b);
   }
 
-  rect (455, y3, 40, 40);
-
+   image(tree ,455, y3, 80, 80);
+// Tells tree to randomize
   y3= y3 +s3;
   if (y3> 850) {
     y3= random(-200, -100);
