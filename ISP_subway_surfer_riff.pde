@@ -23,6 +23,8 @@ int score;// score
 
 PImage dude;
 PImage tree;
+PImage Run;
+
 
 //this function only runs once
 void setup() {
@@ -42,7 +44,9 @@ void setup() {
 
   time= 0;
   score= 0;
+     
  
+ Run = loadImage("loveland.jpg");
  tree = loadImage("evergreen1.jpg");
  //dude= loadImage("
 } //End of void setup
@@ -50,7 +54,8 @@ void setup() {
 
 
 void draw() {
-  background(255);
+  //background(255);
+  image(Run ,0, 0, 720, 960);
   textSize(20);
 
 
@@ -96,6 +101,7 @@ void draw() {
   time= time + 1;
   score= time/60;
 
+fill(255);
   text("Score= " + score, 50, 50);
 } // End of Draw (action stuff)
 
