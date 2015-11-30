@@ -28,8 +28,8 @@ PImage Run;
 
 //this function only runs once
 void setup() {
-//rock= loadImage
-  
+  //rock= loadImage
+
   //Make Canvas
   size(600, 700);
 
@@ -44,22 +44,22 @@ void setup() {
 
   time= 0;
   score= 0;
-     
- 
- Run = loadImage("loveland.jpg");
- tree = loadImage("evergreen1.jpg");
- //dude= loadImage("
+
+
+  Run = loadImage("loveland.jpg");
+  tree = loadImage("evergreen1.jpg");
+  dude= loadImage("skier.jpg");
 } //End of void setup
 
 
 
 void draw() {
   //background(255);
-  image(Run ,0, 0, 720, 960);
+  image(Run, 0, 0, 720, 960);
   textSize(20);
 
 
-// Acceleration/ make game harder
+  // Acceleration/ make game harder
   a= a+.001;
   b= b+.001;
 
@@ -68,30 +68,28 @@ void draw() {
   fill(10, 50, 10);
 
   //Make Person 
-  ellipse(x1, 650, 30, 30);
-
+  image(dude ,x1, 650, 50, 50);
 
 
   //make trees
-  
   image(tree, 280, y1, 80, 80);
-// Tells tree to randomize
+  // Tells tree to randomize
   y1= y1+s1; // Tells the tree to move across the screen
   if (y1 > 850) {
     y1= random(-200, -100);
     s1= random(a, b);
   }
 
-  image(tree ,105, y2, 80, 80);
-// Tells tree to randomize
+  image(tree, 105, y2, 80, 80);
+  // Tells tree to randomize
   y2= y2+s2; // Tells rock to move
   if (y2> 850) {
     y2= random(-200, -100);
     s2= random(a, b);
   }
 
-   image(tree ,455, y3, 80, 80);
-// Tells tree to randomize
+  image(tree, 455, y3, 80, 80);
+  // Tells tree to randomize
   y3= y3 +s3;
   if (y3> 850) {
     y3= random(-200, -100);
@@ -101,7 +99,7 @@ void draw() {
   time= time + 1;
   score= time/60;
 
-fill(255);
+  fill(255);
   text("Score= " + score, 50, 50);
 } // End of Draw (action stuff)
 
