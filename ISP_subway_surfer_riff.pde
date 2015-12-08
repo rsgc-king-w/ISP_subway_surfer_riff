@@ -6,16 +6,19 @@
 float x1; //Tracks horizontal position of Person
 
 //Global Variables for Obstacle 
-float y1; // tracks vertical position of rock
+float ty1; // tracks vertical position of rock
 float s1; // speed for the rocks
+float tx1;  //horiszontal position of trees
 float a = 5; // acceleration for rocks
 float b = 10; // second variable for speed
 
-float y2; // tracks vertical position of rocks
+float ty2; // tracks vertical position of rocks
 float s2; // speed for the rocks
+float tx2;  //horiszontal position of trees
 
-float y3; // left rock
+float ty3; // left rock
 float s3; // speed for rocks
+float tx3; //horiszontal position of trees
 
 
 int time; // variable of seconds
@@ -35,8 +38,8 @@ void setup() {
 
 
   x1= 300; // start position of person
-  y1= -100; //start position of rock
-  y2= -100; //start position of rock 2
+  ty1= -100; //start position of rock
+  ty2= -100; //start position of rock 2
 
   s1= 10;
   s2= 12;
@@ -49,6 +52,8 @@ void setup() {
   Run = loadImage("loveland.jpg");
   tree = loadImage("evergreen1.jpg");
   dude= loadImage("skier.jpg");
+
+  noLoop();
 } //End of void setup
 
 
@@ -57,6 +62,10 @@ void draw() {
   //background(255);
   image(Run, 0, 0, 720, 960);
   textSize(20);
+
+tx1= 280;
+tx2= 105;
+tx3= 455;
 
 
   // Acceleration/ make game harder
@@ -68,31 +77,31 @@ void draw() {
   fill(10, 50, 10);
 
   //Make Person 
-  image(dude ,x1, 650, 50, 50);
+  image(dude, x1, 650, 50, 50);
 
 
   //make trees
-  image(tree, 280, y1, 80, 80);
+  image(tree, tx1, ty1, 80, 80);
   // Tells tree to randomize
-  y1= y1+s1; // Tells the tree to move across the screen
-  if (y1 > 850) {
-    y1= random(-200, -100);
+  ty1= ty1+s1; // Tells the tree to move across the screen
+  if (ty1 > 850) {
+    ty1= random(-200, -100);
     s1= random(a, b);
   }
 
-  image(tree, 105, y2, 80, 80);
+  image(tree, tx2, ty2, 80, 80);
   // Tells tree to randomize
-  y2= y2+s2; // Tells rock to move
-  if (y2> 850) {
-    y2= random(-200, -100);
+  ty2= ty2+s2; // Tells rock to move
+  if (ty2> 850) {
+    ty2= random(-200, -100);
     s2= random(a, b);
   }
 
-  image(tree, 455, y3, 80, 80);
+  image(tree, tx3, ty3, 80, 80);
   // Tells tree to randomize
-  y3= y3 +s3;
-  if (y3> 850) {
-    y3= random(-200, -100);
+  ty3= ty3 +s3;
+  if (ty3> 850) {
+    ty3= random(-200, -100);
     s3= random(a, b);
   }
 
@@ -105,10 +114,16 @@ void draw() {
 
 
 void keyPressed () {
+  //moves the character to the right
   if (key== 'a' && x1 > 125) {
     x1= x1-175;
   }
+  //moves the character to the left
   if (key == 'd' && x1 < 475) {
     x1= x1+175;
+  }
+  // Press the space bar to start the game 
+  if (key == ' ') {
+    loop(); // tells the game to start
   }
 }
