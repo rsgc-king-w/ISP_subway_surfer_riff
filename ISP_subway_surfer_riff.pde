@@ -4,6 +4,7 @@
 
 //Global Variables for Person (used everywhere below)
 float x1; //Tracks horizontal position of Person
+float y1; // Tracks vertical positions of Person 
 
 //Global Variables for Obstacle 
 float ty1; // tracks vertical position of rock
@@ -63,10 +64,11 @@ void draw() {
   image(Run, 0, 0, 720, 960);
   textSize(20);
 
-tx1= 280;
-tx2= 105;
-tx3= 455;
+  tx1= 280;
+  tx2= 105;
+  tx3= 455;
 
+  y1= 650;
 
   // Acceleration/ make game harder
   a= a+.001;
@@ -77,7 +79,7 @@ tx3= 455;
   fill(10, 50, 10);
 
   //Make Person 
-  image(dude, x1, 650, 50, 50);
+  image(dude, x1, y1, 50, 50);
 
 
   //make trees
@@ -110,6 +112,27 @@ tx3= 455;
 
   fill(255);
   text("Score= " + score, 50, 50);
+
+
+  //End Game sequence for the middle tree obstacle
+  if (x1 > tx1 && y1 < ty1 + 40 && x1 < tx1 + 40) {
+    textSize(80);
+    text("GAME OVER", 90, 250);
+    noLoop();
+  }
+
+  // End Game sequence for the left tree
+  if (x1 > tx2 && y1 < ty2 + 40 && x1 < tx2 + 40) {
+    textSize(80);
+    text("GAME OVER", 90, 250);
+    noLoop();
+  }
+
+  if ( x1 > tx3 && y1 < ty3 +40 && x1 < tx3 + 40) {
+    textSize(80);
+    text("GAME OVER", 90, 250);
+    noLoop();
+  }
 } // End of Draw (action stuff)
 
 
